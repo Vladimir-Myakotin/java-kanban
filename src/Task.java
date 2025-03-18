@@ -1,13 +1,14 @@
 import java.util.Objects;
 
 public class Task {
-    private int taskCounter =0;
+    private static int taskCounter = 0;
     protected int idTask; // номер задачи
     protected String nameTask; // имя задачи
     protected String descriptionTask; // описание задачи
     protected Status statusTask; // статус задачи
 
     Task() {
+        this.idTask = generateId();
         this.statusTask = Status.NEW;
     }
 
@@ -21,6 +22,7 @@ public class Task {
     }
 
     public Task(String nameTask, String descriptionTask) {
+        this.idTask = generateId();
         this.nameTask = nameTask;
         this.descriptionTask = descriptionTask;
         this.statusTask = Status.NEW;
