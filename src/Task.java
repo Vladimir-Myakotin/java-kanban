@@ -1,20 +1,29 @@
 import java.util.Objects;
 
 public class Task {
+    private int taskCounter =0;
     protected int idTask; // номер задачи
     protected String nameTask; // имя задачи
     protected String descriptionTask; // описание задачи
     protected Status statusTask; // статус задачи
 
-
     Task() {
         this.statusTask = Status.NEW;
     }
 
+    protected int generateId() {
+        return ++taskCounter;
+    }
+
+    public Task createTask(String name, String description) {
+        int idTask = generateId();
+        return new Task(idTask, name, description);
+    }
+
     public Task(String nameTask, String descriptionTask) {
-        this();
         this.nameTask = nameTask;
         this.descriptionTask = descriptionTask;
+        this.statusTask = Status.NEW;
     }
 
     public Task(int idTask, String nameTask, String descriptionTask) {
@@ -24,6 +33,7 @@ public class Task {
     }
 
     public Task(String nameTask, String descriptionTask, Status statusTask) {
+        this.idTask = generateId();
         this.nameTask = nameTask;
         this.descriptionTask = descriptionTask;
         this.statusTask = statusTask;

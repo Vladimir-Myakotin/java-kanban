@@ -19,6 +19,11 @@ public class Epic extends Task {
 
     }
 
+    public Epic createEpic(String name, String description) {
+        int newId = generateId();
+        return new Epic(newId, name, description);
+    }
+
     public Epic(int idTask, String nameTask, String descriptionTask) {
         super(idTask, nameTask, descriptionTask);
         this.statusTask = Status.NEW;

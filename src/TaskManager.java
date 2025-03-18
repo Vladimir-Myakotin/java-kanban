@@ -2,6 +2,12 @@ import java.util.Objects;
 
 public class TaskManager extends Task {
 
+    private static int taskCounter = 0;
+
+    protected int generateId() {
+    return ++taskCounter;
+    }
+
     private TaskManager() {
         super();
         this.statusTask = Status.NEW;

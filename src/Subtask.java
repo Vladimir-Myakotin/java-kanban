@@ -3,7 +3,7 @@ import java.util.Objects;
 public class Subtask extends Task {
     private final int epicId;
 
-    private Subtask() {
+    private Subtask(int newId, String name, String description) {
         super();
         this.epicId = 0;
     }
@@ -20,6 +20,11 @@ public class Subtask extends Task {
         this.statusTask = statusTask;
         this.epicId = epicId;
 
+    }
+
+    public Subtask createSubtask(String name, String description) {
+        int newId = generateId();
+        return new Subtask(newId, name, description);
     }
 
     public int getEpicId() {
